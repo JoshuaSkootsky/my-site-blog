@@ -1,0 +1,5 @@
+
+baseURL = "https://www.joshuaskootsky.com"
+languageCode = "en-us"
+title = "Joshua Skootsky | Front End Engineer"
+theme = "ananke"
