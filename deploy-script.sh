@@ -15,7 +15,7 @@ mkdir public
 git worktree prune
 rm -rf .git/worktrees/public/
 
-echo "Checking out deploy branch into public"
+echo "Checking out prod branch into public for deployment..."
 git worktree add -B prod public deploy/prod
 
 echo "Building site with Hugo..."
