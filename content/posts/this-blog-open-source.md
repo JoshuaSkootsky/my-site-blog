@@ -63,3 +63,13 @@ To quote the author, [Adam Wiggins](https://news.ycombinator.com/item?id=2141688
 
 > I'm the author of 12factor (although really it is an aggregation of the work and insights from many people at Heroku). It continues to surprise and please me that this piece continues to be relevant eight years later—a virtual eternity in software/internet time.
 > Fun fact: I debated whether to call it "the Heroku way" or somesuch. Glad I went with a standalone name, feel like that allowed it to take on a life beyond that product. For example I doubt Google would have wanted a page about "Heroku Way app development on GCP" in their documentation. :-)
+
+# Final notes
+
+This work is being done on the `main` branch. [Starting October 2020, GitHub by default will start new repositories off in the `main` branch](https://github.com/github/renaming#on-october-1-2020-newly-created-repositories-will-default-to-main). It's pretty simple to switch from `master` to `main`, just run `git checkout -b main` if you're on a branch of any name and want the content of that branch to become your new main branch.
+
+But, the best guide on setting up git and GitHub to use main instead of master that I've seen is [this blog post written by Scott Hanselman](https://www.hanselman.com/blog/EasilyRenameYourGitDefaultBranchFromMasterToMain.aspx) that I saw [on Twitter here](https://twitter.com/scottdavis99/status/1269991411299975173). That covers a whole lot more use cases.
+
+If GitHub's defaults are changing, that alone is a good reason to change your settings around. I'll also note that when learning git, many people memorize incantations, such as `git push origin master`, and switching from `master` to `main` can help push understanding.
+
+I love git. I'm always learning more about it. Incredibly deep, incredibly useful if you know only about 10 commands. Not sure if there's a better guide for bootstrapping understanding and usage of git than [git - the simple guide - no deep shit!](https://rogerdudler.github.io/git-guide/).
