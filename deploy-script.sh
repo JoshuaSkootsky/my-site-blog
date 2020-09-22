@@ -34,3 +34,6 @@ printf "\033[0;32mDeploying updates...\033[0m\n"
 
 # Push source and build repos.
 git push -f deploy prod
+
+# update the github repo
+git push github main
