@@ -2,7 +2,7 @@
 
 # Hello and Welcome
 
-This is my blog, currently hosted at [joshuaskootsky.com]. I've open sourced how I build and deploy the site so you can take a look behind the scenes, if you like the blog or want to see more of how I think in code.
+This is my blog, currently hosted at [joshuaskootsky.com](https://joshuaskootsky.com). I've open sourced how I build and deploy the site so you can take a look behind the scenes, if you like the blog or want to see more of how I think in code.
 
 # Hugo
 
