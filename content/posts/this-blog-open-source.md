@@ -14,7 +14,7 @@ You're probably reading this blog at [joshuaskootsky.com](https://oshuaskootsky.
 
 There was some work put into getting this up on a standard box, and I'd like to share that with you.
 
-If you take a look at my [deploy script](https://https://github.com/JoshuaSkootsky/my-site-blog/blob/main/deploy-script.sh), you can see the following:
+If you take a look at my [deploy script](https://github.com/JoshuaSkootsky/my-site-blog/blob/main/deploy-script.sh), you can see the following:
 
 ```sh
 # Subtree method here: https://gohugo.io/hosting-and-deployment/hosting-on-github/
@@ -49,7 +49,7 @@ What on earth is going on here?
 
 I've got my remote box specified as a git remote tag, specifically the `deploy` target. For me, that's pointed at [joshuaskootsky.com](https://www.joshuaskootsky.com).
 
-Using [Git Worktrees](https://spin.atomicobject.com/2016/06/26/parallelize-development-git-worktrees/) I can, on my `main` branch keep the `public/` folder in my `.gitignore` file, but maintain a deperate `prod` branch that is rooted in the `public` folder and contains the static site elements that Hugo generates.
+Using [Git Worktrees](https://spin.atomicobject.com/2016/06/26/parallelize-development-git-worktrees/) I can, on my `main` branch keep the `public/` folder in my `.gitignore` file, but maintain a deperate `prod` branch that is rooted in the `public/` folder and contains the static site elements that Hugo generates.
 
 I can then use git to orchestrate the deployment of my blog to my actual website. The markdown, styles, and themes that I specify for Hugo to use are kept on the `main` branch, and can be viewed on GitHub - but the static site elements, which are generated programmatically by Hugo, are kept seperate on the `prod` worktree branch. That branch I can deploy to the root of my website on my server, and simply serve up the static assets that you are reading now. Pretty cool and JAM stacky!
 
