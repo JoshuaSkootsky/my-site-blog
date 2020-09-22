@@ -12,9 +12,9 @@ Hugo is a static site generator, written in the Go language. What I really like 
 
 # 12 Factor Design
 
-I mentioned earlier that Hugo follows the 12 Factor app principles. You can see similar language with people talking about the JAM stack, and Hugo definitely falls into JAM stack territory.
+I mentioned earlier that Hugo follows the 12 Factor app principles. You can see similar language with people talking about [the JAM stack, and Hugo definitely falls into JAM stack territory](https://jamstack.org/best-practices/).
 
-The [Twelve Factor App](https://12factor.net/ 'Twelve Factor App') design principles can be found at [12factor.net]. It's really interesting to see how well they aged.
+The [Twelve Factor App](https://12factor.net/ 'Twelve Factor App') design principles can be found at [12factor.net](https://12factor.net '12 Factor App Site'). It's really interesting to see how well they aged.
 
 To quote the author, [Adam Wiggins](https://news.ycombinator.com/item?id=21416881 'Comment on Hacker News'):
 
