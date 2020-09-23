@@ -6,6 +6,10 @@ draft: true
 
 # Rothe Diagrams
 
+We can visualize inversions with Rothe diagrams.
+
+Input anything into the field, and I'll make a Rothe diagram visualization for you as a dynamically generated SVG.
+
 ### Heinrich August Rothe (1773–1842)
 
 Rothe was a German mathematician who studied and advanced the field of combinatorics.
@@ -30,6 +34,6 @@ So, we can view an ordered list of unique elements as having indicies, and we ca
 
 So if instead of _12345_ , we had _12354_, there would be one inversion, _5 > 4_, five is less than 4, yet in that permutation, the index of 5 was less than the index of 4.
 
-# Rothe Diagrams
+# So What is a Rothe Diagram?
 
-We can visualize inversions with Rothe diagrams.
+Okay great, hopefully you've played with the visualizer.
