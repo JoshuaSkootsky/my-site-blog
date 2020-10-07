@@ -1,6 +1,6 @@
 ---
 title: 'Rothe Diagrams and Visualization'
-date: 2020-09-22T16:33:49-04:00
+date: 2020-10-22T16:33:49-04:00
 draft: true
 ---
 

@@ -1,5 +1,10 @@
 
 baseURL = "https://www.joshuaskootsky.com"
 languageCode = "en-us"
-title = "Joshua Skootsky | Software Engineer"
+title = "J. M. Skootsky - Software Engineer"
 theme = "ananke"
+
+[Author]
+  name = "Joshua Skootsky"
+  bio = "Joshua Skootsky, a software engineer who enjoys medieval history, Talmudic analysis, rock climbing, moving arbitray weight in arbitrary movements, Javasript, and functional programming, lives in NYC and write this blog."
+
