@@ -155,3 +155,7 @@ function makeBoard(state) {
 One alternative would be to build this project with React. And I could! Having HTML with an `id="app"` div that gets updated dynamically with Javascript would be how this would be structured if it was built with a Javascript framework like Create React App, (CRA). I've already done [Tic Tac Toe in CRA in TypeScript](https://github.com/JoshuaSkootsky/tic-tac-toe-React/blob/master/src/index.tsx)!
 
 What was compelling about using Vanilla Javascript was that I could just set it up in a REPL, I didn't need to use any NPM packages, and I was able to live a full and complete life without a Javascript framework. Plus, using `${template literals}` in Javascript looks a lot like JSX, and I love JSX, along with React and Typescript.
+
+Whereas before React handled the unidirectional data flow, here I had to set that up, along with separation of concerns for my game logic and how it would be displayed. This made me think more about what I was doing, and also helped me see alternatives, such as displaying images or SVGs instead of HTML to represent the board, Xs, and Os.
+
+Getting back to the DOM and actual DOM events felt really good, and I'd encourage React developers to try out a small project with a similar style of functional, componentized HTML-generating Javascript. For inspiration, you can read this article from [CSS tricks](https://css-tricks.com/reactive-uis-vanillajs-part-1-pure-functional-style/), which I used while figuring out some of the nuts and bolts.
