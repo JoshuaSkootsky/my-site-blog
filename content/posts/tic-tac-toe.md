@@ -64,7 +64,7 @@ function reset(state) {
 }
 ```
 
-An alternative approach would be to to reassign the global state variable. However, I've chosen to initialize STATE as a constant with const, which prevents reassignment. This makes sense if I only want the state to be changed by either pushing new valid board states or popping old ones off. Since STATE can only be as long as there are turns in a game, there isn't much to worry about calling pop 1 to 9 times to reset a single game. If for some reason STATE could get very long, it would be nice to be able to reassign the variable to the initial state.
+An alternative approach would be to to reassign the global state variable. However, I've chosen to initialize STATE as a constant with const, which prevents reassignment. This makes sense if I only want the state to be changed by either pushing new valid board states or popping old ones off. Since STATE can only be as long as there are turns in a game, there isn't much to worry about calling pop 1 to 9 times to reset a single game. If for some reason STATE could get very long, it would be nice to be able to reassign the variable to the initial state, to avoid the time taken to reset the board to grow linearly with the length of STATE. Since STATE is necessarily limited, this isn't a concern.
 
 ## Derived State
 
@@ -85,17 +85,19 @@ function isXNext(state) {
 }
 ```
 
-This allows arbitrary time travel without confusion about whose turn it is.
+This allows arbitrary time travel without confusion about whose turn it is. I could allow you to take back two moves, or five moves, and the game would be ready to play with the correct player, X or O.
 
 Furthermore, I only want to allow moves to be made if no one has won yet. I could have a 'won' variable, and update that if someone wins. But it turned out easier to just put into the code a logical test to see if someone has already won.
 
 ```javascript
-calculateWinner(getCurrent(STATE)) === false;
+if (/* stuff */ && calculateWinner(getCurrent(STATE)) === false) {
+  /* move logic here */
+}
 ```
 
-This allowed me to delete code in other places that managed a global 'won' variable and updated it appropriately. This also is less likely to have bugs, because there is no complicated state that could be stale or not yet updated lying around in my Javascript.
+This allowed me to delete code in other places that managed a global 'won' variable and updated it appropriately. This also is less likely to have bugs, because there is no complicated state that could be stale or not yet updated lying around in my Javascript. This approach is also cleaner, more functional, and more concise.
 
-## Componentization of Vanilla JS
+## Componentization with Vanilla JS
 
 Initially, the 3x3 grid was hardcoded as a template literal.
 
@@ -149,3 +151,7 @@ function makeBoard(state) {
   document.getElementById('board').innerHTML = board;
 }
 ```
+
+One alternative would be to build this project with React. And I could! Having HTML with an `id="app"` div that gets updated dynamically with Javascript would be how this would be structured if it was built with a Javascript framework like Create React App, (CRA). I've already done [Tic Tac Toe in CRA in TypeScript](https://github.com/JoshuaSkootsky/tic-tac-toe-React/blob/master/src/index.tsx)!
+
+What was compelling about using Vanilla Javascript was that I could just set it up in a REPL, I didn't need to use any NPM packages, and I was able to live a full and complete life without a Javascript framework. Plus, using `${template literals}` in Javascript looks a lot like JSX, and I love JSX, along with React and Typescript.
