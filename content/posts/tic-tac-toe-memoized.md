@@ -217,7 +217,9 @@ function calculateWinner(squares) {
 
 This works. However, note something a little interesting - we're recomputing the lines every time we calculate the winner. Since this happens every move, and we aren't changing the size of the board, this isn't necessary. It'd be nice to precompute the lines. I put a console log into lineGen and saw that it was actually calculating the lines twice per move, since the game checks before each move to see if someone has already won, and checks after a move to see if it should display if someone won. So, there's a lot of work to be saved by caching the results.
 
-One way to cache results would be to make my line generator aware of previous work that it did. The most general approach is to write a memoize function that consumes as a callback, `cb`, the unmemoized function, used a closure to store the memoized cache, and returns a new function that is aware of previous times it was calls and remembers what results it returned.
+One way to cache results would be to make my line generator aware of previous work that it did. The most general approach is to write a memoize function that consumes as a callback, `cb`, the unmemoized function, and to use a closure to store the previously computed values in a simple javascript object serving as a look up table.
+
+`memoize` returns a function that keeps track of previous values and results, and "remembers" if the function has already calculated the answer before. Note, as a limitation, that this design only works for functions with one argument - I can memoize results for functions with one argument with this general memoization function.
 
 ```javascript
 function memoize(cb) {
