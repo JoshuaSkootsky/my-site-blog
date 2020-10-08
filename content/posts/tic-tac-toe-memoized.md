@@ -231,7 +231,8 @@ function memoize(cb) {
     }
     else {
       console.log('recalculating...');
-    } return memo[n] = cb(n);
+      return memo[n] = cb(n);
+    }
   }
 }
 
