@@ -10,7 +10,13 @@ Hello!
 
 This is Part 2 of a series on building a Tic Tac Toe game in Vanilla Javascript. [Part 1 is here](https://www.joshuaskootsky.com/posts/tic-tac-toe/)
 
+# Refactor
+
+You can [play Tic Tac Toe here](https://TicTacToe.joshuaskootsky.repl.co).
+
 Originally, my tic tac toe game had the winning board positions as a static value. Today I'll walk you through the process of how I calculated those values on the fly, and memoized the results to prevent unnecessary work being done in my code.
+
+This is a refactor of the code to make future changes easier.
 
 # Win Condition
 
