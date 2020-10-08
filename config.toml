@@ -1,7 +1,7 @@
 
 baseURL = "https://www.joshuaskootsky.com"
 languageCode = "en-us"
-title = "J. M. Skootsky - Software Engineer"
+title = "Joshua Skootsky - Software Engineer"
 theme = "ananke"
 
 [Author]
