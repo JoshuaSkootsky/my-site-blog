@@ -1,7 +1,7 @@
 ---
 title: "Kadane's Algorithm"
 date: 2020-10-15T19:07:08-04:00
-draft: true
+draft: false;
 ---
 
 A short history of Kadane's Algorithm:
