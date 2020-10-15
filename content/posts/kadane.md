@@ -1,5 +1,5 @@
 ---
-title: "Kadane's Algorithm"
+title: "Kadane's Algorithm and A Functional Approach"
 date: 2020-10-15T19:07:08-04:00
 draft: false;
 ---
@@ -8,15 +8,13 @@ A short history of Kadane's Algorithm:
 
 Ulf Grenander in 1997 proposes the problem of finding the maximum subarray of an array. If all numbers allowed are positive, the question is trivial - just add them all up! It gets hard if the numbers can be negative. How do?
 
-Grenander improves on the brute force algorithm, which would have been cubic `O^3`, and finds a quadradic `O^2` solution.
+Grenander then improved on the brute force algorithm, which would have been cubic `O^3`, and found a quadradic `O^2` solution.
 
-Michael Shamos improves this and finds an `O(n log n)` solution, using divide and conquer / binary search.
+Later, Michael Shamos found a further refinement, an `O(n log n)` solution, based on divide and conquer / binary search.
 
-Michael, feeling very good about himself, presents his algorithm at Carnegie Mellon University (CMU), where a professor of statistics, Jay Kadane, attends the talk, and from the audience, in one minute, devises a linear `O(n)` solution, which bears his name.
+Michael (presumably feeling very good about himself) presents his algorithm at Carnegie Mellon University (CMU), where a professor of statistics, Jay Kadane, attended his talk, and from the audience, in one minute, devised a linear `O(n)` solution, which bears his name. This is THE solution to the subarray sum problem, Kadane's Algorithm.
 
-How is this possible?
-
-Let's look at Kadane's algorithm and see:
+Let's look at Kadane's algorithm:
 
 ```javascript
 /*
