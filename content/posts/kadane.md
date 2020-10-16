@@ -51,9 +51,10 @@ const maxSubarray = (array) => {
     currSum: Math.max(0, acc.currSum + elem),
     maxSum: Math.max(acc.currSum, acc.maxSum),
   });
-  const init = { currSum: 0, maxSum: 0 };
 
-  return array.reduce(findMaxSum, init).maxSum;
+  const init = { currSum: 0, maxSum: 0 };
+  const maxSum = array.reduce(findMaxSum, init).maxSum;
+  return maxSum;
 };
 ```
 
