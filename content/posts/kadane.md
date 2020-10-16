@@ -6,13 +6,13 @@ draft: false;
 
 A short history of Kadane's Algorithm:
 
-Ulf Grenander in 1997 proposes the problem of finding the maximum subarray of an array. If all numbers allowed are positive, the question is trivial - just add them all up! It gets hard if the numbers can be negative. How do?
+Ulf Grenander in 1997 proposed the problem of finding the maximum subarray of an array. Note that if all numbers allowed are positive, the question is trivial - just add them all up! It gets hard if the numbers can be negative. How can this question be solved?
 
-Grenander then improved on the brute force algorithm, which would have been cubic `O^3`, and found a quadradic `O^2` solution.
+Grenander improved on the brute force algorithm, which would have been cubic `O^3`, and found an algorithm that solves the maximum subarray sum question in quadradic time, an `O^2` solution.
 
 Later, Michael Shamos found a further refinement, an `O(n log n)` solution, based on divide and conquer / binary search.
 
-Michael (presumably feeling very good about himself) then presented his algorithm at Carnegie Mellon University (CMU), where a professor of statistics, Jay Kadane, attended his talk, andin one minute, from the audience, devised a linear `O(n)` solution, which bears his name. This is THE solution to the subarray sum problem, Kadane's Algorithm.
+Michael (presumably feeling very good about himself) then presented his algorithm at Carnegie Mellon University (CMU), where a professor of statistics, Jay Kadane, attended his talk, and in just one minute, from the audience, devised a linear `O(n)` solution, which bears his name. This is THE solution to the subarray sum problem, Kadane's Algorithm.
 
 Let's look at Kadane's algorithm:
 
@@ -37,7 +37,7 @@ function maxSubarray(array) {
 }
 ```
 
-Kadane's algorithm uses two variables to store the largest sum of continuous elemetns seen so far in `currSum`, and stores the largest value of `currSum` ever seen in `maxSum`. With this small amount of memory usage, the algorithm's Big O runtime can be brought down from `O (n log n)` to `O (n)`.
+Kadane's algorithm uses two variables to store the largest sum of continuous elemetns seen so far in `currSum`, and stores the largest value of `currSum` ever seen in `maxSum`. With this small (constant! `O(1)`!) amount of memory usage, the algorithm's Big O runtime can be brought down from `O (n log n)` to `O (n)`.
 
 Here is the same approach, but using forEach instead:
 
