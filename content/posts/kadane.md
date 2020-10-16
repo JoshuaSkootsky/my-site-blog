@@ -78,7 +78,7 @@ const maxSubarray = (array) => {
 
 This is similar to the pattern you would use if you wanted to use reduce to calculate two different values in one pass. The huge problem is that when currSum updates itself, the maxSum can't update itself, since they are both values nested in an object. This could be worked around, but I think the pitfall is more interesting to point out than the work around.
 
-This, however, would work - but also make your brain hurt:
+This, however, would work - but also make your brain hurt. However, it is elegant in the sense that it's a purely functional approach using reduce, despite the pitfall that I described, and the extra level of complexity:
 
 ```javascript
 /*
@@ -97,7 +97,7 @@ const maxSubarray = (array) => {
 };
 ```
 
-For completeness' sake, here is a solution that uses Javascript reduce with much less overhead. I still prefer the forEach solution to this though:
+For completeness' sake, here is a solution that uses Javascript reduce with less complexity, but due to the use of external state, it's kind of like abuse of reduce.
 
 ```javascript
 const maxSubarray = (array) => {
