@@ -97,7 +97,7 @@ const maxSubarray = (array) => {
 };
 ```
 
-For completeness' sake, here is a solution that uses Javascript reduce with less complexity, but due to the use of external state, it's kind of like abuse of reduce.
+For completeness' sake, here is a solution that uses Javascript reduce with less complexity, but due to the use of external state, it's kind of like abuse of reduce:
 
 ```javascript
 const maxSubarray = (array) => {
