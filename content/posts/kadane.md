@@ -110,3 +110,19 @@ const maxSubarray = (array) => {
   return array.reduce(reducer, 0);
 };
 ```
+
+We could rewrite that using a closure:
+
+```javascript
+const maxSubarray = (array) => {
+  const makeReducer = () => {
+    let currSum = 0;
+    return (maxSum, num) => {
+      currSum = Math.max(currSum + num, 0);
+      return Math.max(currSum, maxSum);
+    };
+  };
+
+  return array.reduce(makeReducer(), 0);
+};
+```
