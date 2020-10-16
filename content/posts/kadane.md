@@ -12,7 +12,7 @@ Grenander then improved on the brute force algorithm, which would have been cubi
 
 Later, Michael Shamos found a further refinement, an `O(n log n)` solution, based on divide and conquer / binary search.
 
-Michael (presumably feeling very good about himself) presents his algorithm at Carnegie Mellon University (CMU), where a professor of statistics, Jay Kadane, attended his talk, and from the audience, in one minute, devised a linear `O(n)` solution, which bears his name. This is THE solution to the subarray sum problem, Kadane's Algorithm.
+Michael (presumably feeling very good about himself) then presented his algorithm at Carnegie Mellon University (CMU), where a professor of statistics, Jay Kadane, attended his talk, andin one minute, from the audience, devised a linear `O(n)` solution, which bears his name. This is THE solution to the subarray sum problem, Kadane's Algorithm.
 
 Let's look at Kadane's algorithm:
 
@@ -42,6 +42,7 @@ Kadane's algorithm uses two variables to store the largest sum of continuous ele
 This can also be done with a functional approach by defining a reducer function carefully.
 
 ```javascript
+// array : number
 const maxSubarray = (array) => {
   const findMaxSum = (acc, elem) => ({
     currSum: Math.max(0, acc.currSum + elem),
