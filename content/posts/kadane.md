@@ -37,7 +37,7 @@ function maxSubarray(array) {
 }
 ```
 
-Kadane's algorithm uses two variables to store the largest sum of continuous elemetns seen so far in `currSum`, and stores the largest value of `currSum` ever seen in `maxSum`. With this small (constant! `O(1)`!) amount of memory usage, the algorithm's Big O runtime can be brought down from `O (n log n)` to `O (n)`.
+Kadane's algorithm uses two variables to store the largest sum of continuous elemetns seen so far in `currSum`, and stores the largest value of `currSum` ever seen in `maxSum`. With this small (constant! `O(1)` time!) amount of memory usage, the algorithm's Big O runtime can be brought down from `O (n log n)` to `O (n)`.
 
 Here is the same approach, but using forEach instead:
 
