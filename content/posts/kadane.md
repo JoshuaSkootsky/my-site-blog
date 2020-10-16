@@ -126,3 +126,5 @@ const maxSubarray = (array) => {
   return array.reduce(makeReducer(), 0);
 };
 ```
+
+It's pretty cool, but the forEach solution is still more direct than trying to shoehorn reduce into this.
