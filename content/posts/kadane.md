@@ -39,14 +39,16 @@ function maxSubarray(array) {
 
 Kadane's algorithm uses two variables to store the largest sum of continuous elemetns seen so far in `currSum`, and stores the largest value of `currSum` ever seen in `maxSum`. With this small amount of memory usage, the algorithm's Big O runtime can be brought down from `O (n log n)` to `O (n)`.
 
+Here is the same approach, but using forEach instead:
+
 ```javascript
 /*
  * @param array: number
  * @return  the maximum subarray sum of array
  */
 const maxSubarray = (array) => {
-  let maxSum = 0,
-    currSum = 0;
+  let maxSum = 0;
+  let currSum = 0;
   arr.forEach((num) => {
     currSum = Math.max(num + currSum, 0);
     maxSum = Math.max(maxSum, currSum);
@@ -74,3 +76,17 @@ const maxSubarray = (array) => {
 ```
 
 This is similar to the pattern you would use if you wanted to use reduce to calculate two different values in one pass. The huge problem is that when currSum updates itself, the maxSum can't update itself, since they are both values nested in an object. This could be worked around, but I think the pitfall is more interesting to point out than the work around.
+
+For completeness' sake, here is a solution that uses Javascript reduce:
+
+```javascript
+const maxSubarray = (array) => {
+  let currSum = 0;
+  const reducer = (maxSum, num) => {
+    currSum = Math.max(currSum + num, 0);
+    return Math.max(currSum, maxSum);
+  };
+
+  return array.reduce(reducer, 0);
+};
+```
