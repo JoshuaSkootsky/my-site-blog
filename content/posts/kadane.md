@@ -24,8 +24,8 @@ Let's look at Kadane's algorithm:
 function maxSubarray(array) {
   if (array.length === 0) return 0;
 
-  let maxSum = array[0];
-  let currSum = array[0];
+  let maxSum = 0;
+  let currSum = 0;
 
   for (let i = 0; i < array.length; i++) {
     const elem = array[i];
