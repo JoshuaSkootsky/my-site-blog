@@ -53,6 +53,7 @@ const maxSubarray = (array) => {
     currSum = Math.max(num + currSum, 0);
     maxSum = Math.max(maxSum, currSum);
   });
+  return maxSum;
 };
 ```
 
