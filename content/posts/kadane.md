@@ -42,7 +42,10 @@ Kadane's algorithm uses two variables to store the largest sum of continuous ele
 This can also be done with a functional approach by defining a reducer function carefully.
 
 ```javascript
-// @param array: number
+/*
+ * @param array: number
+ * @return  the maximum subarray sum of array
+ */
 const maxSubarray = (array) => {
   const findMaxSum = (acc, elem) => ({
     currSum: Math.max(0, acc.currSum + elem),
