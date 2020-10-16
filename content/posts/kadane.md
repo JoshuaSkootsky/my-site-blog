@@ -6,7 +6,7 @@ draft: false;
 
 A short history of Kadane's Algorithm:
 
-Ulf Grenander in 1997 proposed the problem of finding the maximum subarray of an array. Note that if all numbers allowed are positive, the question is trivial - just add them all up! It gets hard if the numbers can be negative. How can this question be solved?
+Ulf Grenander in 1977 proposed the problem of finding the maximum subarray of an array. Note that if all numbers allowed are positive, the question is trivial - just add them all up! It gets hard if the numbers can be negative. How can this question be solved?
 
 Grenander improved on the brute force algorithm, which would have been cubic `O^3`, and found an algorithm that solves the maximum subarray sum question in quadradic time, an `O^2` solution.
 
