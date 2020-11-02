@@ -14,13 +14,13 @@ This REPL was created with the help of the community's feedback. For example, [m
 
 For the most part, on LinkedIn and on Repl.it, people were genuinely delighted by typing English into a text field and seeing, reactively, a translation of their name into an alien language. A huge number of the comments were from users sharing "their" alien name.
 
-I believe this is because names are extremely personal, but I also don't think this would have happened if the translation wasn't done reactively. If users had to submit or be redirected to another webpage, that level of friction or just waiting would have reduced the sheer fun of seeing a "live" translation of their personal name.
+I believe this is because names are extremely personal, but at the same time, I don't think this would have happened if the translation wasn't done reactively. Imagine, if users had to submit or be redirected to another webpage, that level of friction or just waiting would have reduced the sheer fun of seeing a "live" translation of their personal name.
 
 Having functional Javascript run on every keystroke to update and rewrite the HTML that displays the name gave the project that level of reactivity, which I was able to do in plain vanilla Javascript. I didn't need a framework to build this site or put it in front of users.
 
 Because of the high level of engagement, this REPL was [featured for September 2020](https://repl.it/talk/announcements/Monthly-Repls-September-2020/57347). That's a real honor, to be recognized by the community for creating something significant on a website dedicated to sharing coding projects, and I wear that badge with pride.
 
-The website uses similar Vanilla JS event handling and functional programming principles as my REPl for Tic Tac Toe, which you can read more about [here](https://www.joshuaskootsky.com/posts/tic-tac-toe/) and [here](https://www.joshuaskootsky.com/posts/tic-tac-toe-memoized).
+The website uses similar Vanilla JS event handling and functional programming principles as my REPL for Tic Tac Toe, which you can read more about [here](https://www.joshuaskootsky.com/posts/tic-tac-toe/) and [here](https://www.joshuaskootsky.com/posts/tic-tac-toe-memoized).
 
 ## In the Code
 
@@ -101,7 +101,7 @@ function memoize(cb) {
 }
 ```
 
-My function memoize can take any cb function that takes one argument n and returns a memoized version of that function. The returned function behaves like the original function cb, except it consults a memo that lives in the closure of the function memoize that was invoked with cb as an argument. This persistant lexical scope reference data (PLSRD) gives the memoized function a private memo that can remember previous results, and instead of running the original function again, work can be saved by simply returned the cached value.
+My function memoize can take any cb function that takes one argument n and returns a memoized version of that function. The returned function behaves like the original function cb, except it consults a memo that lives in the closure of the function memoize that was invoked with cb as an argument. This persistent lexical scope reference data (PLSRD) gives the memoized function a private memo that can remember previous results, and instead of running the original function again, work can be saved by simply returned the cached value.
 
 Doing the actual decoding is harder, because alien name tokens, in alien language, can be multiple characters. Therefore, the solution was to build up possible tokens dynamically, and check those possible tokens against the decoding mapping.
 
@@ -129,4 +129,4 @@ function alienNameDecoder(alienName, encoder) {
 }
 ```
 
-This might not be the clearest code, but it is a clear reflection of a thought process that solved the problem. The intent is very clear, and I'm still too attached to the code to make it look like I knew what I was doing before I did it.
+This might not be the cleanest code, but it is a clear reflection of a thought process that solved the problem. The intent is very clear, and I'm still too attached to the code to make it look like I knew what I was doing before I did it.
