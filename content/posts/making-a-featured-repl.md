@@ -1,7 +1,7 @@
 ---
 title: 'Alien Name Generator: Making a Featured Repl'
 date: 2020-11-01T17:25:38-05:00
-draft: true
+draft: false
 ---
 
 # Making a Featured REPL
