@@ -86,8 +86,7 @@ child_process is a powerful wrapper on Node.js.
 ```javascript
 const { exec } = require('child_process');
 ```
-[https://medium.com/stackfame/how-to-run-shell-script-file-or-command-using-nodejs-b9f2455cb6b7]
-[https://stackfame.com/run-shell-script-file-or-command-nodejs]
+[https://medium.com/stackfame/how-to-run-shell-script-file-or-command-using-nodejs-b9f2455cb6b7](https://stackfame.com/run-shell-script-file-or-command-nodejs)
 
 child_process is really strong inbuilt Node capability of running shell scripts.
 
@@ -117,7 +116,7 @@ exec('sh ' + FILE_NAME, (error, stdout, stderr) => {
 ```
 This script will read the shell script next door, and then execute it as a child process with a shell environment.
 
-Does this work on Windows?
+Does this work on Windows? It's important to test ideas out.
 
 I have a virtual Windows machine, running Windows 10, with Git Bash (for Windows) installed. This means some basic shell commands are supported by the default command prompt in Windows. Let's see if this works.
 
@@ -131,11 +130,11 @@ Simplest way is to navigate in Command Prompt to my source code directory, and t
 
 and then I am able to run `example.sh` directly.
 
-So, so far, it's all gone back to the POSIX standard for a shell and shell commands.
+So, so far, it's all gone back to the POSIX standard for a shell and shell commands. This is one reason it's important to have standards, and be explicit about what you depend on. It's also a good thing that "the shell" is moving to Windows.
 
 # True Cross Platform Performance
 
-Keeping in the mind the limitations of vanilla Node's mkdir command in Windows, we have the option of writing vanilla Node.js that will run on both Windows and Mac/Linux systems.
+Keeping in the mind the limitations of vanilla Node's mkdir command in Windows, we have the option of writing vanilla Node.js that will run on both Windows and Mac/Linux systems. This is useful because it's really easy to install Node.js onto Windows. So it would be nice to have a solution that 'just worked' if Node.js was installed:
 
 ```javascript
 // Take two:
@@ -158,13 +157,16 @@ fs.writeFile(`../${DIR_NAME}/mycompany/log.id`, "521","utf-8", errorHandler)
 
 And this approach in vanilla Node.js works in Windows from the command prompt.
 
+Is this fun, writing everything out and not letting mkdir -p save us a lot of work? No, not at all. It's really no fun at all. But it works.
+
 For a promisified version, see here: [https://github.com/nodejs/help/issues/2093](https://github.com/nodejs/help/issues/2093).
 
-Is this fun, writing everything out and not letting mkdir -p save us a lot of work? No, not at all. It's really no fun at all.
 
 I'd actually look into adapting this approach, for that reason, for constructing more involved file paths: [https://github.com/nodejs/help/issues/1840#issuecomment-478124633](https://github.com/nodejs/help/issues/1840#issuecomment-478124633).
 
-Another possible approach is write a small compiler that takes POSIX Shell compliant mkdir commands and translates them into cross platform Node.js commands that work in Windows too, specifically addressing the nested directory problem and bulk/cruft that comes from not having the handy Shell shorthand or -p flag.
+Another possible approach would be to write a small compiler that takes POSIX Shell compliant mkdir commands and translates them into cross platform Node.js commands that work in Windows too. This would specifically address the nested directory problem along with the bulk/cruft that comes from not having the handy Shell shorthand or -p flag.
+
+You can imagine how it would have gotten out of hand if I needed a cross platform Node.js script translation of a shell script that made even more nested directories!
 
 
 
