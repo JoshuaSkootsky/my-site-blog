@@ -16,7 +16,7 @@ Here's an example of script that might be useful:
 
 echo "making directories..."
 
-DIR_NAME="Project Coolio" #note: no space
+DIR_NAME="Project Coolio" #note the space, this makes life hard
 
 mkdir -p ../"$DIR_NAME"/mycompany/{OSX,Windows}/debug
 
@@ -51,7 +51,8 @@ const errorHandler = ( err ) => err ? console.log(err) : console.log("Success!")
 
 fs.mkdir("./Cool Project", errorHandler);
 
-// note: recursive file generation, like fs.mkdir("./Cool Project/mycompany/OSX"
+// note: recursive file generation, 
+// like fs.mkdir("./Cool Project/mycompany/OSX"
 // is not supported on Windows
 
 fs.writeFile("./Cool Project/special.id", "521","utf-8", errorHandler)
@@ -59,7 +60,7 @@ fs.writeFile("./Cool Project/special.id", "521","utf-8", errorHandler)
 ```
 With fs, it's possible to make directories and write to files. Node can do that natively. Unfortunately, the useful behavior of `mkdir -p` can't be done with vanilla Node.js in Windows.
 
-So, we need to move on:
+So, we need to move on.
 
 ## Writing an AST and Compiler
 
@@ -67,20 +68,19 @@ It seems like writing a real Bash parser is hard.
 
 Actually making a full AST for shell seems hard.
 
-[https://www.oilshell.org/blog/2019/02/07.html]
+[https://www.oilshell.org/blog/2019/02/07.html](https://www.oilshell.org/blog/2019/02/07.html)
 
-[https://www.oilshell.org/blog/2017/02/11.html]
+[https://www.oilshell.org/blog/2017/02/11.html](https://www.oilshell.org/blog/2017/02/11.html)
 
-[https://aosabook.org/en/bash.html]
+[https://aosabook.org/en/bash.html](https://aosabook.org/en/bash.html)
 
-[https://mywiki.wooledge.org/BashParser]
+[https://mywiki.wooledge.org/BashParser](https://mywiki.wooledge.org/BashParser)
 
 But this could be done. The problem here is that if writing your own vanilla Node version seems difficult, how can your plan be to automatically write a Vanilla Node solution?
 
 ## Built In Node Capabilities
 
 child_process is a powerful wrapper on Node.js. 
-
 
 
 ```javascript
@@ -119,6 +119,64 @@ This script will read the shell script next door, and then execute it as a child
 
 Does this work on Windows?
 
-I have a virtual Windows machine, running Windows 10, with Bash for Git (for Windows) installed. This means some basic shell commands are supported by the default command prompt in Windows. Let's see if this works:
+I have a virtual Windows machine, running Windows 10, with Git Bash (for Windows) installed. This means some basic shell commands are supported by the default command prompt in Windows. Let's see if this works.
+
+Open up command prompt in Windows, use `dir` instead of `ls`, and `cd` and `mkdir` around the command propmp. `> notepad fileName` to open up and write new files... and my `example.js` file fails.
+
+Why? Because it depends on `sh`, which doesn't exist by in the Windows Command Prompt. You can even see in `example.js` where it calls `sh example.sh`.
+
+Well then. Let us try it Git Bash (for Windows), which is installed on my machine. You might also try the Linux subsystem.
+
+Simplest way is to navigate in Command Prompt to my source code directory, and then there execute the command, "C:\Program Files\Git\bin\sh.exe".
+
+and then I am able to run `example.sh` directly.
+
+So, so far, it's all gone back to the POSIX standard for a shell and shell commands.
+
+# True Cross Platform Performance
+
+Keeping in the mind the limitations of vanilla Node's mkdir command in Windows, we have the option of writing vanilla Node.js that will run on both Windows and Mac/Linux systems.
+
+```javascript
+// Take two:
+// example2.js
+// Usage: node vanilla2.js
+
+/*
+#/parent/childOne/example.sh
+# Usage: sh example.sh
+
+echo "making directories..."
+
+DIR_NAME="Project Coolio" #note the space, this makes life hard
+
+mkdir -p ../"$DIR_NAME"/mycompany/{OSX,Windows}/debug
+
+echo 5221 > ../"$DIR_NAME"/mycompany/log.id
+*/
+
+const fs = require("fs")
+const errorHandler = ( err ) => err ? console.log(err) : console.log("Success!")
+const DIR_NAME="Project Coolio"
+
+fs.mkdir(`../${DIR_NAME}`, errorHandler);
+fs.mkdir(`../${DIR_NAME}/mycompany`, errorHandler);
+fs.mkdir(`../${DIR_NAME}/mycompany/OSX`, errorHandler);
+fs.mkdir(`../${DIR_NAME}/mycompany/OSX/debug`, errorHandler);
+fs.mkdir(`../${DIR_NAME}/mycompany/Windows`, errorHandler);
+fs.mkdir(`../${DIR_NAME}/mycompany/Windows/debug`, errorHandler);
+
+fs.writeFile(`../${DIR_NAME}/mycompany/log.id`, "521","utf-8", errorHandler)
+```
+
+For a promisified version, see here: [https://github.com/nodejs/help/issues/2093](https://github.com/nodejs/help/issues/2093).
+
+Is this fun, writing everything out and not letting mkdir -p save us a lot of work? No, not at all. It's really no fun at all.
+
+I'd actually look into adapting this approach, for that reason, for constructing more involved file paths: [https://github.com/nodejs/help/issues/1840#issuecomment-478124633](https://github.com/nodejs/help/issues/1840#issuecomment-478124633).
+
+
+
+
 
 
