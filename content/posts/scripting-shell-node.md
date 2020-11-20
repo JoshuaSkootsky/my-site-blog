@@ -120,7 +120,12 @@ Does this work on Windows? It's important to test ideas out.
 
 I have a virtual Windows machine, running Windows 10, with Git Bash (for Windows) installed. This means some basic shell commands are supported by the default command prompt in Windows. Let's see if this works.
 
-Open up command prompt in Windows, use `dir` instead of `ls`, and `cd` and `mkdir` around the command propmp. `> notepad fileName` to open up and write new files... and my `example.js` file fails.
+Open up command prompt in Windows, use `dir` instead of `ls`, and `cd` and `mkdir` to navigate around your filesystem with the Windows Command Prompt. 
+
+`> notepad fileName` is the easiest way to open up and write new files...
+
+
+and my `example.js`, as written above, fails.
 
 Why? Because it depends on `sh`, which doesn't exist by in the Windows Command Prompt. You can even see in `example.js` where it calls `sh example.sh`.
 
