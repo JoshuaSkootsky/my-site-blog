@@ -142,19 +142,6 @@ Keeping in the mind the limitations of vanilla Node's mkdir command in Windows, 
 // example2.js
 // Usage: node vanilla2.js
 
-/*
-#/parent/childOne/example.sh
-# Usage: sh example.sh
-
-echo "making directories..."
-
-DIR_NAME="Project Coolio" #note the space, this makes life hard
-
-mkdir -p ../"$DIR_NAME"/mycompany/{OSX,Windows}/debug
-
-echo 5221 > ../"$DIR_NAME"/mycompany/log.id
-*/
-
 const fs = require("fs")
 const errorHandler = ( err ) => err ? console.log(err) : console.log("Success!")
 const DIR_NAME="Project Coolio"
@@ -169,11 +156,17 @@ fs.mkdir(`../${DIR_NAME}/mycompany/Windows/debug`, errorHandler);
 fs.writeFile(`../${DIR_NAME}/mycompany/log.id`, "521","utf-8", errorHandler)
 ```
 
+And this approach in vanilla Node.js works in Windows from the command prompt.
+
 For a promisified version, see here: [https://github.com/nodejs/help/issues/2093](https://github.com/nodejs/help/issues/2093).
 
 Is this fun, writing everything out and not letting mkdir -p save us a lot of work? No, not at all. It's really no fun at all.
 
 I'd actually look into adapting this approach, for that reason, for constructing more involved file paths: [https://github.com/nodejs/help/issues/1840#issuecomment-478124633](https://github.com/nodejs/help/issues/1840#issuecomment-478124633).
+
+Another possible approach is write a small compiler that takes POSIX Shell compliant mkdir commands and translates them into cross platform Node.js commands that work in Windows too, specifically addressing the nested directory problem and bulk/cruft that comes from not having the handy Shell shorthand or -p flag.
+
+
 
 
 
