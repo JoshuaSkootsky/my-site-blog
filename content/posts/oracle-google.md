@@ -78,8 +78,10 @@ to use the code that fulfills the promise of adding up all the numbers. Probably
 
 Microsoft, [in their amicus curie](https://www.supremecourt.gov/DocketPDF/18/18-956/128381/20200113143602407_Microsoft%20-%20Google%20v%20Oracle%20Amicus%20Brief_Efile.pdf) point out that WINE allows Linux machines to use the Windows API to run Windows programs - without Microsoft's authorization or paying Microsoft a licensing fee. Layers of promises are common in software, and specifying those promises allow for other people to write software that fulfills those promises. I think that's a good definition of an API.
 
-It seems to me that the correct decision would be to find for Google and against Oracle. However, on both a technical and legal level, I'm interested in hearing from people who know more about this.
+# Some Extra Technical Points and Legal Analysis
 
-# Some Legal Analysis
+One of the key issues is that there is a "standard library" for Java, which is part of the Java SDK. This standard library, its ins and outs, are learned by Java engineers. Google could have made its own SDK, the "Google Standard Library" which could have provided the same functionality or expanded functionality, without needing to copy the structure and layout of the Java SDK, whose intellectual property rights are now owned by Oracle.
 
-It seems to me that the case is similar to that of software emulation. 
+It is because of this that Google has a real problem: because they wanted to copy or emulate the same structure of the official Java SDK, necessarily there are many lines of code that are the same. In a copyright case, one of the key criteria is determining the amount of material that was copied over and used. For Google, unfortunately, there's just a lot of code that can be pointed to as copied from the original Java SDK.
+
+

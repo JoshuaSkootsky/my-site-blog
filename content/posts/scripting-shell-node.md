@@ -173,7 +173,21 @@ Another possible approach would be to write a small compiler that takes POSIX Sh
 
 You can imagine how it would have gotten out of hand if I needed a cross platform Node.js script translation of a shell script that made even more nested directories!
 
+# With Dependencies
 
+Once you have dependencies, the ability to use Node.js and npm install ____, then there are some tools that could make this job easier.
+
+[https://www.npmjs.com/package/shelljs](https://www.npmjs.com/package/shelljs)
+
+[https://www.npmjs.com/package/mkdirp](https://www.npmjs.com/package/mkdirp)
+
+As `mkdirp` says:
+
+> Now with a modern API and no* bugs!
+
+> * may contain some bugs
+
+If you start introducing dependencies, you won't know that you have cross platform performance until you try it out and relentlessly test your implementation.
 
 
 
