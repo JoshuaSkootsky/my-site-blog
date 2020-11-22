@@ -88,7 +88,7 @@ The concept of comparators is key to understanding all sorts that rely on compar
 
 You will note that the concept of a binary tree depends on comparators, specifically the ability to take two values and determine which is larger than the other.
 
-For a binary tree `n` elements, lookup time is `O (log n)` - you will need to make one of two choices at most `log n` number of times.
+For a binary tree of `n` elements, lookup time is `O (log n)` - you will need to make one of two choices at most `log n` number of times, because the height of the tree is `log n`, and hence it could take `log n` steps to reach the bottom of the tree and find what you are looking for - or rule out its presence in the binary tree!
 
 To make a rough, intuitive argument, to place all the elements of an array of length n into a binary tree should therefore be `O (n * log n)` - do the work of putting each element into a binary tree, `O ( log n)` work, and to do that `n` times, for "sorting" in `O (n log n)` time.
 
