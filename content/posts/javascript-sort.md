@@ -90,7 +90,7 @@ You will note that the concept of a binary tree depends on comparators, specific
 
 For a binary tree of `n` elements, lookup time is `O (log n)` - you will need to make one of two choices at most `log n` number of times, because the height of the tree is `log n`, and hence it could take `log n` steps to reach the bottom of the tree and find what you are looking for - or rule out its presence in the binary tree!
 
-To make a rough, intuitive argument, to place all the elements of an array of length n into a binary tree should therefore be `O (n * log n)` - do the work of putting each element into a binary tree, `O ( log n)` work, and to do that `n` times, for "sorting" in `O (n log n)` time.
+To make a rough, intuitive argument, to place all the elements of an array of length `n` into a binary tree should therefore be `O (n * log n)` - to do the work of putting each element into a binary tree requires at least `O ( log n)` work, and to do that `n` times for each element, would together take `O (n log n)` time. The result would be an array sorted by the comparator used to define 'greater than' and 'less than' when building the binary tree.
 
 If you have all the elements of an array in a binary tree, because you then have `O log n` lookup, that can be considered to be the same as having a sorted array, where with binary search you also have `O ( log n)` lookup.
 
