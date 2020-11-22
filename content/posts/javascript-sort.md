@@ -1,7 +1,7 @@
 ---
 title: "Javascript Sort"
 date: 2020-11-22T12:07:42-05:00
-draft: true
+draft: false
 ---
 
 # Comparators and Javascript Native Sort - An Introduction
