@@ -24,7 +24,8 @@ Then get a useEffect hook running to load the data in asynchronously:
 
 ``` javascript
 useEffect(() => {
-    // call the function here
+    // useEffect can't be async
+    // define an async function here and call it in useEffect
     const apiCall = async () => {
       const result = await getFromAPI();
       setContent(result); // set value of content hook you made earlier with useState
@@ -35,7 +36,6 @@ useEffect(() => {
 
 Note that the empty array as a second parameter, `[]`, means that this side effect only runs on page load. If you add other values into the dependency array, then useEffect will make the API call whenever those values change.
 
-
 Now, you're using Redux, and you have an action that to make the API call depends on information in the Redux store. What to do?
 
 Make an action in the form of a Redux asynchronous action creator, but don't dispatch anything to the Redux store. You're not using global application state to store the results of this API call, you just need it to 'live' locally in a useState hook.
@@ -45,7 +45,8 @@ So, with that in mind, define getFromAPI() something like this, along with your 
 
 ``` javascript
   export const getFromAPI = () => async (dispatch, getState) => {
-    // do not store in redux state
+    // do not dispatch to store in redux state
+    // but you can use getState if you need it
     const axiosConfig = {
       baseURL: process.env.YOUR_URL,
       headers: {
@@ -64,13 +65,15 @@ This then allows you elsewhere in the component with useEffect and useState to l
 
 
 ``` javascript
-// display fetched content
-<p> { content } </p>
+// display fetched content in JSX 
+{ content }
 
 ```
 
 The variable content, actually local state created with useState, will take on the value of the API call after it the API call completes.
 
-This allows you to display content with local state, fetched remotely, without storing that value in your Redux store - which is much more lightweight, and appropriate if you don't need to share that data with other parts of your React site. In general I ask myself if something is global, application level state, or not. If not, I can keep it local and lightweight, which tends to be faster to write and has fewer moving parts to go wrong.
+This allows you to display content with local state, fetched remotely, without storing that value in your Redux store - which is much more lightweight, and appropriate if you don't need to share that data with other parts of your React site. 
+
+In general I ask myself if something is global, application level state, or not. If not, I can keep it local and lightweight, which tends to be faster to write and has fewer moving parts to go wrong.
 
 
