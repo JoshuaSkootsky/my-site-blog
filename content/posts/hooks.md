@@ -27,7 +27,7 @@ useEffect(() => {
     // call the function here
     const apiCall = async () => {
       const result = await getFromAPI();
-      setSecrets(result);
+      setContent(result); // set value of content hook you made earlier with useState
     }
     apiCall();
   }, []);
