@@ -1,8 +1,10 @@
 ---
-title: 'VC Code Extensions'
+title: 'VS Code Extensions'
 date: 2021-01-27T17:13:18-05:00
 draft: false
 ---
+
+This can get a bit personal, but maybe I can suggest to you some useful VS Code extensions that I've installed and found really helpful.
 
 # VS Code Extensions for Javascript and Web Development
 
