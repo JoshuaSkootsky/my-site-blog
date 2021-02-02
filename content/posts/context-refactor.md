@@ -17,7 +17,11 @@ But, let's say you're doing something else - what if you're dealing with a prett
 
 You could use Redux and actions to do this.
 
-In this case, with useState React Hooks, that will be enough. For the purposes of this post, assume that you're given some React state with the useState Hook, and your goal is to share that state to other components.
+But, here, you've already got the state locally defined with useState, and you've already got the handler for the state similarly defined with useState.
+
+You just want share that state, along with its handler, to other components.
+
+Here is how to do that with React Context:
 
 ```react
   // src/root.js
