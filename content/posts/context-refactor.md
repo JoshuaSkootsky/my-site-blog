@@ -87,3 +87,5 @@ Now you've exported the state for that modal, along with the handler for its beh
 This also had great synergy with the existing use of the useState hook, making this an excellent and lightweight refactor to add more capabilities to your codebase.
 
 Some of the syntax I used for useContext is just a preference I have at the time of writing this, I think I minimized the magic by making things maximally explicit and showing where the parts and pipes fit together for data flow.
+
+That's especially dependent on the choice to use the useContext hook instead of the Context.Consumer pattern. You'll notice that I still had to define the <ContextProvider> component by accessing the `.Provider` property. My context was `camelCase`, my components were `CapitalCase`, and when I imported the ` { modalContext } ` I had to use object destructing (not a default export) and respect the convention of using camelCase for 'Plain Old Javascript Objects'.
