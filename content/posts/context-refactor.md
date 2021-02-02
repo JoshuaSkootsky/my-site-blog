@@ -4,9 +4,12 @@ date: 2021-02-01T18:38:30-05:00
 draft: false
 ---
 
-# Into to React Context
+# Intro to React Context
 
-Intro to React Context, and how to do a quick refactor.
+Intro to React Context, and how to do a quick refactor of an existing useState hook.
+
+Niche? Not really - read on for a quick intro to how to use React Context to share and manipulate data across an app.
+
 
 You might be designing an app from first principles, or being the lucky duck to architect something very neat and clean from scratch.
 
